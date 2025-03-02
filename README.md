@@ -1,19 +1,18 @@
-# Sign Language Recognition using LSTM
-
-![Project Banner](https://via.placeholder.com/1200x400.png?text=Sign+Language+Recognition+using+LSTM)  
+# Sign Language Recognition using LSTM 
 *An AI-powered sign language recognition system using LSTM, trained on video datasets, and deployed via a Streamlit app.*
 
 ---
 
 ## 📜 Overview
 
-This project is a **Sign Language Recognition System** that leverages **Long Short-Term Memory (LSTM)** networks to recognize sign language gestures from video data. The model is trained on a video dataset and deployed as a user-friendly **Streamlit web application**. The app also integrates a **speech-to-text** feature and allows users to upload videos for real-time prediction.
+This project is a **Sign Language Recognition System** that leverages a hybrid model of **Long Short-Term Memory (LSTM)**  and **Convolutional Neural Network (CNN)** networks to recognize sign language gestures from video data. The model is trained on a video dataset and presented as a user-friendly **Streamlit web application**. The app also integrates a **speech-to-text** feature and allows users to upload videos for real-time prediction.
 
 ---
 
 ## 🚀 Key Features
 
-- **LSTM Model**: A deep learning model trained on video datasets to recognize sign language gestures.
+- **LSTM Model**: A deep learning model trained on video datasets to recognize temporal patterns in sign language gestures.
+- **Convolutional Neural Network (CNN)**: A deep learning model trained to extract spatial features from frames of hand images.
 - **Streamlit App**: A web-based interface for users to interact with the model.
 - **Speech-to-Text Integration**: Converts spoken language into text for enhanced accessibility.
 - **Video Upload Option**: Users can upload videos for real-time sign language recognition.
@@ -43,9 +42,8 @@ The LSTM model is designed to process sequential video data and extract spatiote
 
 ## 📊 Dataset
 
-The model is trained on a **video dataset** containing sign language gestures. The dataset includes:
-- 📂 Multiple sign language gestures.
-- 🌞 Diverse lighting conditions and backgrounds.
+The model is trained on a **videographical dataset** containing sign language gestures. The dataset includes:
+- 📂 Multiple sign language gestures(different 47 labels across the dataset).
 - ⏩ Variations in gesture speed and execution.
 
 *Note: If you're using a custom dataset, ensure it is preprocessed and split into training, validation, and test sets.*
@@ -79,7 +77,16 @@ For questions, feedback, or collaboration opportunities, feel free to reach out:
 
 - **Pratham Asthana** 👤  
 - 📧 (prathamasthana04@gmail.com)   
-- 💬 ([https://linkedin.com/in/your-profile](https://www.linkedin.com/in/pratham-asthana-243133265/))  
+- 💬 ([https://github.com/pratham-asthana](https://www.linkedin.com/in/pratham-asthana-243133265/))
+- **Aryan Verma**
+- 📧 (aryanv090803@gmail.com)
+- 💬 ([https://github.com/Aryanv-0908](https://www.linkedin.com/in/aryan-verma-aa8a04263/))
+- **Neeraj Jha**
+- 📧 (jhaneeraj2003@gmail.com)
+- 💬 ([https://github.com/neeraj-jhaa](https://www.linkedin.com/in/neeraj-jha-a471521ab/))
+- **Akshat**
+- 📧 (akshatlamba4@gmail.com)
+- 💬 ([https://github.com/akshatlamba1])
 
 ---
 
