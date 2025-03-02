@@ -30,13 +30,11 @@ This project is a **Sign Language Recognition System** that leverages a hybrid m
 
 ## 🧠 Model Architecture
 
-The LSTM model is designed to process sequential video data and extract spatiotemporal features. Here's a high-level overview of the architecture:
-
-1. **Input Layer** 🎥: Accepts video frames as input.
-2. **Preprocessing** 🛠️: Frames are resized, normalized, and converted to grayscale.
-3. **LSTM Layers** 🔄: Multiple LSTM layers to capture temporal dependencies.
+1. **Time Distributed Layer** 🎥
+2. **LSTM Layers** 🔄: 2 LSTM layers to capture sequential data(videos).
 4. **Dense Layers** 🧩: Fully connected layers for classification.
-5. **Output Layer** 🎯: Softmax activation for gesture prediction.
+5. **Output Layer** 🎯: Softmax & RelU activation for gesture prediction.
+6. **Dropout Layer** : To introduce non linearity.
 
 ---
 
