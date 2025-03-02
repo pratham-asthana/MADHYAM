@@ -75,7 +75,8 @@ For questions, feedback, or collaboration opportunities, feel free to reach out:
 
 - **Pratham Asthana** 👤  
 - 📧 (prathamasthana04@gmail.com)   
-- 💬 ([https://github.com/pratham-asthana](https://www.linkedin.com/in/pratham-asthana-243133265/))
+- 💬 ([https://github.com/pratham-asthana])
+- LinkedIn: ([https://www.linkedin.com/in/pratham-asthana-243133265/])
 - **Aryan Verma**
 - 📧 (aryanv090803@gmail.com)
 - 💬 ([https://github.com/Aryanv-0908](https://www.linkedin.com/in/aryan-verma-aa8a04263/))
