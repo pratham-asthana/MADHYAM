@@ -1,5 +1,5 @@
 # Sign Language Recognition using LSTM 
-*An AI-powered sign language recognition system using LSTM, trained on video datasets, and deployed via a Streamlit app.*
+*An AI-powered sign language recognition system using LSTM, trained on video datasets, having a Streamlit GUI.*
 
 ---
 
