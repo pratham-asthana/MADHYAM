@@ -7,14 +7,12 @@ from tensorflow.keras.layers import Conv2D, MaxPooling2D, LSTM, Dense, TimeDistr
 from tensorflow.keras.utils import to_categorical
 from sklearn.preprocessing import LabelEncoder
 
-# Constants
-FRAME_SIZE = (64, 64)  # Resize frames to 64x64
-SEQUENCE_LENGTH = 30  # Number of frames per video
-NUM_CLASSES = 47  # Number of gesture classes
+FRAME_SIZE = (64, 64)  
+SEQUENCE_LENGTH = 30  
+NUM_CLASSES = 47 
 BATCH_SIZE = 32
 EPOCHS = 50
 
-# Function to extract frames from a video
 def extract_frames(video_path, frame_size=FRAME_SIZE):
     frames = []
     cap = cv2.VideoCapture(video_path)
@@ -23,23 +21,19 @@ def extract_frames(video_path, frame_size=FRAME_SIZE):
         if not ret:
             break
         frame = cv2.resize(frame, frame_size)
-        frame = frame / 255.0  # Normalize pixel values
+        frame = frame / 255.0  
         frames.append(frame)
     cap.release()
     return frames
 
-# Function to create sequences of fixed length
 def create_sequences(frames, sequence_length=SEQUENCE_LENGTH):
     if len(frames) < sequence_length:
-        # Pad with black frames if the video is too short
         padding = [np.zeros_like(frames[0])] * (sequence_length - len(frames))
         frames.extend(padding)
     else:
-        # Trim the video if it's too long
         frames = frames[:sequence_length]
     return np.array(frames)
 
-# Function to load the dataset
 def load_dataset(dataset_path):
     X = []
     y = []
@@ -57,11 +51,10 @@ def load_dataset(dataset_path):
             y.append(class_name)
 
     X = np.array(X)
-    y = label_encoder.transform(y)  # Convert class names to integers
-    y = to_categorical(y, num_classes=NUM_CLASSES)  # One-hot encode labels
+    y = label_encoder.transform(y)  
+    y = to_categorical(y, num_classes=NUM_CLASSES)  
     return X, y
-
-# Load the dataset
+    
 print("Loading training data...")
 X_train, y_train = load_dataset('dataset/train')
 print("Loading validation data...")
@@ -69,7 +62,6 @@ X_val, y_val = load_dataset('dataset/val')
 print("Loading test data...")
 X_test, y_test = load_dataset('dataset/test')
 
-# Define the CNN feature extractor
 def create_feature_extractor(input_shape):
     model = Sequential([
         Conv2D(32, (3, 3), activation='relu', input_shape=input_shape),
@@ -79,9 +71,7 @@ def create_feature_extractor(input_shape):
         Flatten()
     ])
     return model
-
-# Define the hybrid CNN-LSTM model
-input_shape = FRAME_SIZE + (3,)  # Input frame shape (height, width, channels)
+input_shape = FRAME_SIZE + (3,)  
 feature_extractor = create_feature_extractor(input_shape)
 
 model = Sequential([
@@ -91,14 +81,12 @@ model = Sequential([
     LSTM(64),
     Dropout(0.2),
     Dense(128, activation='relu'),
-    Dense(NUM_CLASSES, activation='softmax')  # 47 classes
+    Dense(NUM_CLASSES, activation='softmax')  
 ])
 
-# Compile the model
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 model.summary()
 
-# Train the model
 history = model.fit(
     X_train, y_train,
     epochs=EPOCHS,
@@ -106,11 +94,9 @@ history = model.fit(
     validation_data=(X_val, y_val)
 )
 
-# Evaluate the model
 loss, accuracy = model.evaluate(X_test, y_test)
 print(f'Test Loss: {loss}')
 print(f'Test Accuracy: {accuracy}')
 
-# Save the model
 model.save('gesture_recognition_model.h5')
 print("Model saved!")
